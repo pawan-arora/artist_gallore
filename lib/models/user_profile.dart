@@ -21,11 +21,11 @@ class UserProfile {
 }
 
 enum Category {
-  painting,
+  painter,
   sculpture,
   literature,
-  music,
-  performing,
+  musician,
+  performer,
 }
 
 class CountryCodes {

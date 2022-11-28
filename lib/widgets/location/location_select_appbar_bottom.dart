@@ -1,7 +1,4 @@
-import 'package:artist_gallore/widgets/custom_floating_search.dart';
 import 'package:flutter/material.dart';
-
-import 'floating_search_bar.dart';
 
 class LocationSelect extends StatelessWidget {
   const LocationSelect({
@@ -27,10 +24,10 @@ class LocationSelect extends StatelessWidget {
           InkWell(
             child: const Text("Ghaziabad"),
             onTap: () {
-              showFloatingSearch(
+              /* showFloatingSearch(
                 context: context,
                 delegate: CustomSearchDelegate(),
-              );
+              ); */
             },
           )
         ],

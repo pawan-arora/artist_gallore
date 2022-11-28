@@ -1,7 +1,7 @@
 import 'package:artist_gallore/Screens/location_select_page.dart';
 import 'package:artist_gallore/Services/location_Service.dart';
 import 'package:artist_gallore/models/constants.dart';
-import 'package:artist_gallore/widgets/button_arrow.dart';
+import 'package:artist_gallore/widgets/buttons/button_arrow.dart';
 import 'package:artist_gallore/widgets/circular_progress_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:page_transition/page_transition.dart';
@@ -35,14 +35,14 @@ class _LocationAppBarState extends State<LocationAppBar> {
 
   Future<void> updateLocation(String location) async {
     SharedPreferences pref = await _prefs;
-    pref.setString("location", location);
+    pref.setString(GlobalDataConstants.location, location);
   }
 
   @override
   void initState() {
     service = LocationService(onLocationChange: onlocationChange);
     super.initState();
-    //service.getCurrentPosition();
+    service.getCurrentPosition();
   }
 
   @override

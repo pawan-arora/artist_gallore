@@ -14,3 +14,13 @@ class MenuConstants {
   static const String literatureName = "Literature";
   static const String performingName = "Performing";
 }
+
+class GlobalDataConstants {
+  static const String location = "location";
+  static const String commonLocation = "India";
+}
+
+class IconsContants {
+  static const String heartOff = "assets/icons/heart_off.png";
+  static const String heartOn = "assets/icons/heart_on.png";
+}

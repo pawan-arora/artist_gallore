@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class TextHeading extends StatelessWidget {
-  const TextHeading({Key? key, required this.title, required this.fontSize})
+  const TextHeading({Key? key, required this.title, this.fontSize = 12})
       : super(key: key);
 
   final String title;

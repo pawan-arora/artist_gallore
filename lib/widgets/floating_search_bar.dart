@@ -1,5 +1,5 @@
 import 'package:artist_gallore/widgets/custom_floating_search.dart';
-import 'package:artist_gallore/widgets/location_select_bar_bottom.dart';
+import 'package:artist_gallore/widgets/location/location_select_appbar_bottom.dart';
 import 'package:flutter/material.dart';
 
 class SearchBar extends StatefulWidget {

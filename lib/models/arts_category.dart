@@ -1,8 +1,11 @@
+import 'package:flutter/cupertino.dart';
+
+@immutable
 class ArtsCategory {
   final String name;
   final String path;
 
-  ArtsCategory({required this.name, required this.path});
+  const ArtsCategory({required this.name, required this.path});
 
   String get getName {
     return name;
