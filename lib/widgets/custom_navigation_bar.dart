@@ -1,8 +1,12 @@
+import 'package:artist_gallore/models/constants.dart';
 import 'package:flutter/material.dart';
 
 class CustomNaviagationBar extends StatefulWidget {
   final Color themeColor;
-  const CustomNaviagationBar({Key? key, required this.themeColor})
+  final List<Widget> pages;
+
+  const CustomNaviagationBar(
+      {Key? key, required this.themeColor, required this.pages})
       : super(key: key);
 
   @override
@@ -14,10 +18,15 @@ class _CustomNaviagationBarState extends State<CustomNaviagationBar> {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      type: BottomNavigationBarType.fixed,
       items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.home),
           label: 'Home',
+        ),
+        BottomNavigationBarItem(
+          icon: ImageIcon(AssetImage(IconsContants.heartOff)),
+          label: 'Favourites',
         ),
         BottomNavigationBarItem(
           icon: Icon(Icons.chat),
@@ -40,6 +49,10 @@ class _CustomNaviagationBarState extends State<CustomNaviagationBar> {
   void _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (_) => widget.pages[index]),
+      );
     });
   }
 }

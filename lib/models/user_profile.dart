@@ -1,3 +1,5 @@
+import 'package:artist_gallore/models/constants.dart';
+
 class UserProfile {
   final String name;
   final String location;
@@ -7,12 +9,13 @@ class UserProfile {
   final String photo;
   final int contactNumber;
   final CountryName countryName;
+  bool isSelected = false;
 
   UserProfile({
     required this.name,
-    required this.location,
     required this.category,
     this.rating = 1,
+    required this.location,
     this.photo = "assets/images/no_picture.png",
     this.ratingPhoto = "assets/images/star-rating.png",
     required this.contactNumber,

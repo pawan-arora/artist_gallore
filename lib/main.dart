@@ -1,6 +1,8 @@
+import 'package:artist_gallore/Screens/favourite_page.dart';
 import 'package:artist_gallore/models/constants.dart';
 import 'package:artist_gallore/models/gallore_menu_item.dart';
 import 'package:artist_gallore/models/user_profile.dart';
+import 'package:artist_gallore/widgets/buttons/favourite_button.dart';
 import 'package:artist_gallore/widgets/custom_navigation_bar.dart';
 import 'package:artist_gallore/widgets/floating_search_bar.dart';
 import 'package:artist_gallore/widgets/location/location_app_bar.dart';
@@ -62,109 +64,116 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: CustomScrollView(slivers: [
-          SliverAppBar(
-            floating: true,
-            pinned: true,
-            snap: false,
-            centerTitle: false,
-            title: Padding(
-              child: TextHeading(
-                title: title,
-                fontSize: 16,
-              ),
-              padding: const EdgeInsets.all(8.0),
+      body: CustomScrollView(slivers: [
+        SliverAppBar(
+          floating: true,
+          pinned: true,
+          snap: false,
+          centerTitle: false,
+          title: Padding(
+            child: TextHeading(
+              title: title,
+              fontSize: 16,
             ),
-            actions: const [
-              LocationAppBar(
-                duration: 700,
-                pageTransition: PageTransitionType.topToBottom,
-              ),
-            ],
-            bottom: AppBar(
-              title: const SearchBar(),
+            padding: const EdgeInsets.all(8.0),
+          ),
+          actions: const [
+            LocationAppBar(
+              duration: 700,
+              pageTransition: PageTransitionType.topToBottom,
             ),
+          ],
+          bottom: AppBar(
+            title: const SearchBar(),
           ),
-          SliverList(
-            delegate: SliverChildBuilderDelegate(
-              (context, index) => MenuListHorizontalScroll(items: [
-                GalloreMenuItem(
-                    name: MenuConstants.paintingName,
-                    imagePath: ImageConstants.paintingPath),
-                GalloreMenuItem(
-                    name: MenuConstants.sculpturegName,
-                    imagePath: ImageConstants.sculpturePath),
-                GalloreMenuItem(
-                    name: MenuConstants.literatureName,
-                    imagePath: ImageConstants.literaturePath),
-                GalloreMenuItem(
-                    name: MenuConstants.musicName,
-                    imagePath: ImageConstants.musicPath),
-                GalloreMenuItem(
-                    name: MenuConstants.performingName,
-                    imagePath: ImageConstants.performingPath),
-              ], heading: const TextHeading(title: "Arts", fontSize: 20))
-                  .getGridList(context),
-              childCount: 1,
-            ),
+        ),
+        SliverList(
+          delegate: SliverChildBuilderDelegate(
+            (context, index) => MenuListHorizontalScroll(items: [
+              GalloreMenuItem(
+                  name: MenuConstants.paintingName,
+                  imagePath: ImageConstants.paintingPath),
+              GalloreMenuItem(
+                  name: MenuConstants.sculpturegName,
+                  imagePath: ImageConstants.sculpturePath),
+              GalloreMenuItem(
+                  name: MenuConstants.literatureName,
+                  imagePath: ImageConstants.literaturePath),
+              GalloreMenuItem(
+                  name: MenuConstants.musicName,
+                  imagePath: ImageConstants.musicPath),
+              GalloreMenuItem(
+                  name: MenuConstants.performingName,
+                  imagePath: ImageConstants.performingPath),
+            ], heading: const TextHeading(title: "Arts", fontSize: 20))
+                .getGridList(context),
+            childCount: 1,
           ),
-          const SliverPadding(
-            padding: EdgeInsets.only(top: 10),
-            sliver: SliverToBoxAdapter(
-              child: TextHeading(title: "Most Popular", fontSize: 20),
-            ),
+        ),
+        const SliverPadding(
+          padding: EdgeInsets.only(top: 10),
+          sliver: SliverToBoxAdapter(
+            child: TextHeading(title: "Most Popular", fontSize: 20),
           ),
-          SliverPadding(
-            padding: const EdgeInsets.only(top: 5),
-            sliver: SliverGrid.count(
-                crossAxisCount: 2,
-                crossAxisSpacing: 10,
-                children: UserProfileListVertical(
-                  userProfiles: [
-                    UserProfile(
-                        name: "Chintu",
-                        location: "ABC",
-                        rating: 4,
-                        category: Category.musician,
-                        contactNumber: 9871345031,
-                        countryName: CountryName.india),
-                    UserProfile(
-                        name: "Chinta",
-                        location: "ABC",
-                        category: Category.painter,
-                        contactNumber: 9871345031,
-                        countryName: CountryName.india),
-                    UserProfile(
-                        name: "Chintu",
-                        location: "ABC",
-                        category: Category.painter,
-                        contactNumber: 9871345031,
-                        countryName: CountryName.india),
-                    UserProfile(
-                        name: "Chinta",
-                        location: "ABC",
-                        category: Category.painter,
-                        contactNumber: 9871345031,
-                        countryName: CountryName.india),
-                    UserProfile(
-                        name: "Chintu",
-                        location: "ABC",
-                        category: Category.painter,
-                        contactNumber: 9871345031,
-                        countryName: CountryName.india),
-                    UserProfile(
-                        name: "Chinta",
-                        location: "ABC",
-                        category: Category.painter,
-                        contactNumber: 9871345031,
-                        countryName: CountryName.india)
-                  ],
-                ).generateGrid(context)),
-          ),
-        ]),
-        bottomNavigationBar: const CustomNaviagationBar(
-          themeColor: AppTheme.color,
-        ));
+        ),
+        SliverPadding(
+          padding: const EdgeInsets.only(top: 5),
+          sliver: SliverGrid.count(
+              crossAxisCount: 2,
+              crossAxisSpacing: 10,
+              children: UserProfileListVertical(
+                userProfiles: [
+                  UserProfile(
+                      name: "Chintu",
+                      location: "ABC",
+                      rating: 4,
+                      category: Category.musician,
+                      contactNumber: 9871345031,
+                      countryName: CountryName.india),
+                  UserProfile(
+                      name: "Chinta",
+                      location: "ABC",
+                      category: Category.painter,
+                      contactNumber: 9871345031,
+                      countryName: CountryName.india),
+                  UserProfile(
+                      name: "Chintu",
+                      location: "ABC",
+                      category: Category.painter,
+                      contactNumber: 9871345031,
+                      countryName: CountryName.india),
+                  UserProfile(
+                      name: "Chinta",
+                      location: "ABC",
+                      category: Category.painter,
+                      contactNumber: 9871345031,
+                      countryName: CountryName.india),
+                  UserProfile(
+                      name: "Chintu",
+                      location: "ABC",
+                      category: Category.painter,
+                      contactNumber: 9871345031,
+                      countryName: CountryName.india),
+                  UserProfile(
+                      name: "Chinta",
+                      location: "ABC",
+                      category: Category.painter,
+                      contactNumber: 9871345031,
+                      countryName: CountryName.india)
+                ],
+              ).generateGrid(context)),
+        ),
+      ]),
+      bottomNavigationBar: const CustomNaviagationBar(
+        themeColor: AppTheme.color,
+        pages: [
+          MyHomePage(),
+          FavouritePage(
+            title: "My Favourites",
+          )
+        ],
+      ),
+    );
   }
 }
 

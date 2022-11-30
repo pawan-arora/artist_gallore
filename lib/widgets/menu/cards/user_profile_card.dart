@@ -1,6 +1,7 @@
 import 'package:artist_gallore/models/constants.dart';
 import 'package:artist_gallore/models/user_profile.dart';
 import 'package:artist_gallore/styles/basic_text_style.dart';
+import 'package:artist_gallore/widgets/custom_tooltip.dart';
 import 'package:artist_gallore/widgets/location/location_card.dart';
 import 'package:flutter/material.dart';
 
@@ -28,23 +29,23 @@ class _UserProfileCardState extends State<UserProfileCard> {
           children: [
             Padding(
               padding: const EdgeInsets.all(5),
-              child: Stack(children: [
-                FittedBox(
-                  child: Image.asset(
-                    widget.userProfile.photo,
-                    height: 90,
-                    width: 160,
-                    fit: BoxFit.cover,
+              child: Stack(
+                children: [
+                  FittedBox(
+                    child: Image.asset(
+                      widget.userProfile.photo,
+                      height: 90,
+                      width: 160,
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                ),
-                Tooltip(
-                  message: widget.userProfile.category.name,
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: _getCategoryIcon(20, 25),
-                  ),
-                )
-              ]),
+                  CustomTooltip(
+                      name: widget.userProfile.category.name,
+                      category: widget.userProfile.category,
+                      iconHeight: 20,
+                      iconWidth: 25),
+                ],
+              ),
             ),
             Container(
               alignment: Alignment.topLeft,
@@ -68,45 +69,6 @@ class _UserProfileCardState extends State<UserProfileCard> {
         ),
       ),
     );
-  }
-
-  Image _getCategoryIcon(double iconHeight, double iconWidth) {
-    switch (widget.userProfile.category) {
-      case Category.painter:
-        return Image.asset(
-          ImageConstants.paintingPath,
-          height: iconHeight,
-          width: iconWidth,
-        );
-
-      case Category.sculpture:
-        return Image.asset(
-          ImageConstants.sculpturePath,
-          height: iconHeight,
-          width: iconWidth,
-        );
-
-      case Category.musician:
-        return Image.asset(
-          ImageConstants.musicPath,
-          height: iconHeight,
-          width: iconWidth,
-        );
-
-      case Category.performer:
-        return Image.asset(
-          ImageConstants.performingPath,
-          height: iconHeight,
-          width: iconWidth,
-        );
-
-      default:
-        return Image.asset(
-          ImageConstants.literaturePath,
-          height: iconHeight,
-          width: iconWidth,
-        );
-    }
   }
 
   List<Widget> _getRating() {

@@ -1,11 +1,11 @@
 import 'package:artist_gallore/Services/users_DB_service.dart';
 import 'package:artist_gallore/models/user_profile.dart';
 import 'package:artist_gallore/styles/basic_text_style.dart';
+import 'package:artist_gallore/styles/multi_style_text.dart';
 import 'package:artist_gallore/widgets/buttons/button_circular_border.dart';
 import 'package:artist_gallore/widgets/circular_progress_bar.dart';
 import 'package:artist_gallore/widgets/location/location_leading_button.dart';
 import 'package:artist_gallore/widgets/menu/cards/user_profile_card_list.dart';
-import 'package:artist_gallore/styles/text_heading.dart';
 import 'package:flutter/material.dart';
 
 class UserListPage extends StatefulWidget {
@@ -112,14 +112,18 @@ class _UserListPageState extends State<UserListPage> {
                     height: 1.0,
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 5, right: 4, left: 4),
+                    padding: const EdgeInsets.only(top: 5, right: 4, left: 15),
                     child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          BasicTextStyle(
-                            name: "${_usersProfile.length} results",
-                            optfontSize: 12,
-                          ),
+                          MultiStyleText(
+                              text: "${_usersProfile.length}",
+                              fontWeight: FontWeight.bold,
+                              multilines: [
+                                TextLine(
+                                    text: " results found!",
+                                    fontWeight: FontWeight.normal)
+                              ]),
                           const ButtonCircularBorder(name: "Filter")
                         ]),
                   ),

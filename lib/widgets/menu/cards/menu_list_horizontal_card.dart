@@ -23,10 +23,11 @@ class MenuListHorizontalCard extends StatelessWidget {
           Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (_) => UserListPage(
-                      duration: 0,
-                      category: menuItem.getName,
-                    )),
+              builder: (_) => UserListPage(
+                duration: 0,
+                category: menuItem.getName,
+              ),
+            ),
           );
         },
         child: Column(

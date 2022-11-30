@@ -1,6 +1,8 @@
 import 'package:artist_gallore/models/constants.dart';
 import 'package:artist_gallore/models/user_profile.dart';
 import 'package:artist_gallore/styles/basic_text_style.dart';
+import 'package:artist_gallore/widgets/buttons/favourite_button.dart';
+import 'package:artist_gallore/widgets/custom_tooltip.dart';
 import 'package:artist_gallore/widgets/location/location_card.dart';
 import 'package:flutter/material.dart';
 
@@ -29,18 +31,28 @@ class _UserProfileCardListState extends State<UserProfileCardList> {
   Widget build(BuildContext context) {
     return Card(
       color: widget.foregroundColor,
-      //shadowColor: Colors.blueGrey[300],
+      shadowColor: Colors.blueGrey[300],
+      elevation: 4,
       child: Container(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            FittedBox(
-              child: Image.asset(
-                widget.userProfile.photo,
-                height: widget.imageHeight,
-                width: widget.imageWidth,
-                fit: BoxFit.contain,
-              ),
+            Stack(
+              children: [
+                FittedBox(
+                  child: Image.asset(
+                    widget.userProfile.photo,
+                    height: widget.imageHeight,
+                    width: widget.imageWidth,
+                    fit: BoxFit.contain,
+                  ),
+                ),
+                CustomTooltip(
+                    name: widget.userProfile.category.name,
+                    category: widget.userProfile.category,
+                    iconHeight: 20,
+                    iconWidth: 25),
+              ],
             ),
             Padding(
               padding: const EdgeInsets.only(top: 8.0),
@@ -77,14 +89,8 @@ class _UserProfileCardListState extends State<UserProfileCardList> {
               ),
             ),
             const Spacer(),
-            FittedBox(
-              alignment: Alignment.topCenter,
-              child: Image.asset(
-                IconsContants.heartOff,
-                height: 25,
-                width: 25,
-                fit: BoxFit.contain,
-              ),
+            FavouriteButton(
+              userProfile: widget.userProfile,
             )
           ],
         ),
