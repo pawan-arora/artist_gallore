@@ -14,7 +14,14 @@ class FavouritePage extends StatefulWidget {
 }
 
 class _FavouritePageState extends State<FavouritePage> {
-  //List<UserProfile> favourites = List.empty();
+  List<UserProfile> favourites = List.empty();
+  late Future<List<UserProfile>> fetchFavorites;
+
+  @override
+  void initState() {
+    super.initState();
+    fetchFavorites = UsersDBService.fetchFavorites();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,9 +34,8 @@ class _FavouritePageState extends State<FavouritePage> {
   }
 
   Widget _generateFavouriteList() {
-    ///List<UserProfile> favourites = UsersDBService.fetchFavorites();
     return FutureBuilder<List<UserProfile>>(
-      future: UsersDBService.fetchFavorites(),
+      future: fetchFavorites,
       builder: (context, snapshot) {
         if (snapshot.connectionState != ConnectionState.done) {
           return const CustomCircularProgressBar();
@@ -43,6 +49,11 @@ class _FavouritePageState extends State<FavouritePage> {
               userProfile: favouriteUsers[index],
               imageHeight: 80,
               imageWidth: 160,
+              onFavouriteButtonClick: (() {
+                setState(() {
+                  fetchFavorites = UsersDBService.fetchFavorites();
+                });
+              }),
             );
           },
           itemCount: favouriteUsers.length,

@@ -1,9 +1,7 @@
-import 'package:artist_gallore/models/constants.dart';
 import 'package:artist_gallore/models/user_profile.dart';
 import 'package:artist_gallore/styles/basic_text_style.dart';
 import 'package:artist_gallore/widgets/buttons/favourite_button.dart';
 import 'package:artist_gallore/widgets/custom_tooltip.dart';
-import 'package:artist_gallore/widgets/location/location_card.dart';
 import 'package:flutter/material.dart';
 
 class UserProfileCardList extends StatefulWidget {
@@ -12,13 +10,15 @@ class UserProfileCardList extends StatefulWidget {
   final double imageHeight;
   final double imageWidth;
   final double fontSize;
+  void Function()? onFavouriteButtonClick;
 
-  const UserProfileCardList(
+  UserProfileCardList(
       {Key? key,
       required this.foregroundColor,
       required this.userProfile,
       required this.imageHeight,
       required this.imageWidth,
+      this.onFavouriteButtonClick,
       this.fontSize = 12})
       : super(key: key);
 
@@ -91,6 +91,7 @@ class _UserProfileCardListState extends State<UserProfileCardList> {
             const Spacer(),
             FavouriteButton(
               userProfile: widget.userProfile,
+              onButtonClick: widget.onFavouriteButtonClick,
             )
           ],
         ),

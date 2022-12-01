@@ -105,7 +105,7 @@ class MyHomePage extends StatelessWidget {
               GalloreMenuItem(
                   name: MenuConstants.performingName,
                   imagePath: ImageConstants.performingPath),
-            ], heading: const TextHeading(title: "Arts", fontSize: 20))
+            ], heading: const TextHeading(title: "Categories", fontSize: 20))
                 .getGridList(context),
             childCount: 1,
           ),

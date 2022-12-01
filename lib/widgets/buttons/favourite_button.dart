@@ -3,10 +3,11 @@ import 'package:artist_gallore/models/constants.dart';
 import 'package:artist_gallore/models/user_profile.dart';
 import 'package:flutter/material.dart';
 
+// ignore: must_be_immutable
 class FavouriteButton extends StatefulWidget {
-  //void Function() onButtonClick;
+  void Function()? onButtonClick;
   final UserProfile userProfile;
-  const FavouriteButton({Key? key, required this.userProfile})
+  FavouriteButton({Key? key, required this.userProfile, this.onButtonClick})
       : super(key: key);
 
   @override
@@ -14,7 +15,15 @@ class FavouriteButton extends StatefulWidget {
 }
 
 class _FavouriteButtonState extends State<FavouriteButton> {
-  bool _isSelected = false;
+  //bool _isSelected = widget.userProfile.isSelected;
+  late bool _isSelected;
+
+  @override
+  void initState() {
+    super.initState();
+    _isSelected = widget.userProfile.isSelected;
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -27,6 +36,7 @@ class _FavouriteButtonState extends State<FavouriteButton> {
           } else {
             UsersDBService.removeSelectedUserFromFavorites(widget.userProfile);
           }
+          widget.onButtonClick?.call();
         });
       },
       child: FittedBox(

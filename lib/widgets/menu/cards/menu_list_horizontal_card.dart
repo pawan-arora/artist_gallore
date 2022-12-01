@@ -24,7 +24,7 @@ class MenuListHorizontalCard extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (_) => UserListPage(
-                duration: 0,
+                duration: 3,
                 category: menuItem.getName,
               ),
             ),

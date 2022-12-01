@@ -6,9 +6,14 @@ class ButtonArrow extends StatelessWidget {
   final IconData? iconData;
   final String? displayText;
   final String alternativeText = "view all";
+  final Function() onArrowButtonClick;
 
   const ButtonArrow(
-      {Key? key, required this.direction, this.iconData, this.displayText})
+      {Key? key,
+      required this.direction,
+      this.iconData,
+      this.displayText,
+      required this.onArrowButtonClick})
       : super(key: key);
 
   @override
@@ -17,7 +22,9 @@ class ButtonArrow extends StatelessWidget {
       children: [
         _getWidget(),
         IconButton(
-          onPressed: () {},
+          onPressed: () {
+            onArrowButtonClick();
+          },
           icon: SvgPicture.asset(direction),
           constraints: const BoxConstraints(),
         )
@@ -28,7 +35,9 @@ class ButtonArrow extends StatelessWidget {
   Widget _getWidget() {
     if (iconData == null) {
       return InkWell(
-        onTap: () {},
+        onTap: () {
+          onArrowButtonClick();
+        },
         child: Text(
           displayText ?? alternativeText,
           style: const TextStyle(
@@ -42,7 +51,7 @@ class ButtonArrow extends StatelessWidget {
         padding: const EdgeInsetsDirectional.only(start: 10),
         constraints: const BoxConstraints(),
         onPressed: () {
-          print("HELLO location");
+          onArrowButtonClick();
         },
         icon: Icon(iconData),
       );

@@ -13,6 +13,7 @@ class MenuConstants {
   static const String musicName = "Music";
   static const String literatureName = "Literature";
   static const String performingName = "Performing";
+  static const String buttonText = "show all";
 }
 
 class GlobalDataConstants {

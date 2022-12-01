@@ -62,9 +62,11 @@ class _LocationAppBarState extends State<LocationAppBar> {
             ? const CustomCircularProgressBar()
             : Text(_currentLocation),
       ),
-      const ButtonArrow(
+      ButtonArrow(
         direction: ImageConstants.rightArrowPath,
-        iconData: Icons.location_on,
+        iconData: Icons.location_on, onArrowButtonClick: () {
+          
+        },
       ),
     ]);
   }
