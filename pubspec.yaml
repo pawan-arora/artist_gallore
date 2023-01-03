@@ -42,8 +42,9 @@ dependencies:
   geocode: ^1.0.1
   page_transition: "^2.0.9"
   shared_preferences: ^2.0.15
-  sticky_headers: "^0.3.0"
-
+  dropdown_button2: ^1.9.2
+  event_bus: ^2.0.0
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -70,6 +71,7 @@ flutter:
   assets:
    - assets/icons/
    - assets/images/
+   - assets/icons/currency/
    - google_fonts/
 
   # An image asset can refer to one or more resolution-specific "variants", see

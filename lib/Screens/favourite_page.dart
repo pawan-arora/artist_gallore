@@ -2,7 +2,7 @@ import 'package:artist_gallore/Services/users_DB_service.dart';
 import 'package:artist_gallore/models/user_profile.dart';
 import 'package:artist_gallore/styles/text_heading.dart';
 import 'package:artist_gallore/widgets/circular_progress_bar.dart';
-import 'package:artist_gallore/widgets/menu/cards/user_profile_card_list.dart';
+import 'package:artist_gallore/widgets/cards/user_profile_card_list.dart';
 import 'package:flutter/material.dart';
 
 class FavouritePage extends StatefulWidget {

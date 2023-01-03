@@ -1,6 +1,6 @@
 import 'package:artist_gallore/models/gallore_menu_item.dart';
 import 'package:artist_gallore/styles/text_heading.dart';
-import 'package:artist_gallore/widgets/menu/cards/category_list_card.dart';
+import 'package:artist_gallore/widgets/cards/category_list_card.dart';
 import 'package:flutter/material.dart';
 
 class CategoryPage extends StatelessWidget {
@@ -18,7 +18,7 @@ class CategoryPage extends StatelessWidget {
       ),
       body: ListView.builder(
         itemBuilder: (context, index) {
-          return CategoryListCard(title: items[index].getName);
+          return CategoryListCard(menuItem: items[index]);
         },
         itemCount: items.length,
       ),

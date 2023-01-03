@@ -46,36 +46,36 @@ class UsersDBService {
                 name: "Chintu",
                 rating: 4,
                 location: currentLocation,
-                category: Category.painter,
+                category: UserCategory.painter,
                 contactNumber: 9871345031,
                 countryName: CountryName.india),
             UserProfile(
                 name: "Chinta",
                 location: currentLocation,
-                category: Category.painter,
+                category: UserCategory.painter,
                 contactNumber: 9871345031,
                 countryName: CountryName.india),
             UserProfile(
                 name: "Chintu",
-                category: Category.painter,
+                category: UserCategory.painter,
                 location: currentLocation,
                 contactNumber: 9871345031,
                 countryName: CountryName.india),
             UserProfile(
                 name: "Chinta",
-                category: Category.painter,
+                category: UserCategory.painter,
                 location: currentLocation,
                 contactNumber: 9871345031,
                 countryName: CountryName.india),
             UserProfile(
                 name: "Chintu",
-                category: Category.painter,
+                category: UserCategory.painter,
                 location: currentLocation,
                 contactNumber: 9871345031,
                 countryName: CountryName.india),
             UserProfile(
                 name: "Chinta",
-                category: Category.painter,
+                category: UserCategory.painter,
                 location: currentLocation,
                 contactNumber: 9871345031,
                 countryName: CountryName.india)
@@ -89,13 +89,13 @@ class UsersDBService {
             UserProfile(
                 name: "Rahul",
                 rating: 4,
-                category: Category.literature,
+                category: UserCategory.literature,
                 location: currentLocation,
                 contactNumber: 9871345031,
                 countryName: CountryName.india),
             UserProfile(
                 name: "Abhishek",
-                category: Category.literature,
+                category: UserCategory.literature,
                 location: currentLocation,
                 contactNumber: 9871345031,
                 countryName: CountryName.india)
@@ -109,13 +109,13 @@ class UsersDBService {
             UserProfile(
                 name: "Diship",
                 rating: 4,
-                category: Category.musician,
+                category: UserCategory.musician,
                 location: currentLocation,
                 contactNumber: 9871345031,
                 countryName: CountryName.india),
             UserProfile(
                 name: "Garg",
-                category: Category.musician,
+                category: UserCategory.musician,
                 contactNumber: 9871345031,
                 location: currentLocation,
                 countryName: CountryName.india)
@@ -129,20 +129,20 @@ class UsersDBService {
             UserProfile(
                 name: "Jay",
                 rating: 4,
-                category: Category.performer,
+                category: UserCategory.performer,
                 location: currentLocation,
                 contactNumber: 9871345031,
                 countryName: CountryName.india),
             UserProfile(
                 name: "Santa",
-                category: Category.performer,
+                category: UserCategory.performer,
                 location: currentLocation,
                 contactNumber: 9871345031,
                 countryName: CountryName.india),
             UserProfile(
                 name: "Banta",
                 location: currentLocation,
-                category: Category.performer,
+                category: UserCategory.performer,
                 contactNumber: 9871345031,
                 countryName: CountryName.india)
           ];
@@ -156,18 +156,18 @@ class UsersDBService {
                 name: "Sculpture_1",
                 location: currentLocation,
                 rating: 4,
-                category: Category.sculpture,
+                category: UserCategory.sculpture,
                 contactNumber: 9871345031,
                 countryName: CountryName.india),
             UserProfile(
                 name: "Sculpture_2",
                 location: currentLocation,
-                category: Category.sculpture,
+                category: UserCategory.sculpture,
                 contactNumber: 9871345031,
                 countryName: CountryName.india),
             UserProfile(
                 name: "Sculpture_3",
-                category: Category.sculpture,
+                category: UserCategory.sculpture,
                 contactNumber: 9871345031,
                 location: currentLocation,
                 countryName: CountryName.india)

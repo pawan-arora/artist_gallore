@@ -13,7 +13,7 @@ class MenuConstants {
   static const String musicName = "Music";
   static const String literatureName = "Literature";
   static const String performingName = "Performing";
-  static const String buttonText = "show all";
+  static const String buttonText = "view all";
 }
 
 class GlobalDataConstants {
@@ -24,4 +24,7 @@ class GlobalDataConstants {
 class IconsContants {
   static const String heartOff = "assets/icons/heart_off.png";
   static const String heartOn = "assets/icons/heart_on.png";
+  static const String dollarCurrency = "assets/icons/currency/dollar.png";
+  static const String ratingSelect = "assets/images/star-rating.png";
+  static const String ratingUnSelect = "assets/images/star-rating-empty.png";
 }

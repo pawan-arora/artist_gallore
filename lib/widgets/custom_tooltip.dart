@@ -4,10 +4,15 @@ import 'package:flutter/material.dart';
 
 class CustomTooltip extends StatelessWidget {
   final String name;
-  final Category category;
+  final UserCategory category;
   final double iconHeight;
   final double iconWidth;
-  const CustomTooltip({Key? key, required this.name, required this.category, required this.iconHeight, required this.iconWidth})
+  const CustomTooltip(
+      {Key? key,
+      required this.name,
+      required this.category,
+      required this.iconHeight,
+      required this.iconWidth})
       : super(key: key);
 
   @override
@@ -23,28 +28,28 @@ class CustomTooltip extends StatelessWidget {
 
   Image _getCategoryIcon() {
     switch (category) {
-      case Category.painter:
+      case UserCategory.painter:
         return Image.asset(
           ImageConstants.paintingPath,
           height: iconHeight,
           width: iconWidth,
         );
 
-      case Category.sculpture:
+      case UserCategory.sculpture:
         return Image.asset(
           ImageConstants.sculpturePath,
           height: iconHeight,
           width: iconWidth,
         );
 
-      case Category.musician:
+      case UserCategory.musician:
         return Image.asset(
           ImageConstants.musicPath,
           height: iconHeight,
           width: iconWidth,
         );
 
-      case Category.performer:
+      case UserCategory.performer:
         return Image.asset(
           ImageConstants.performingPath,
           height: iconHeight,

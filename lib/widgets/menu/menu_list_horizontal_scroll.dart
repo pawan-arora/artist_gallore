@@ -2,7 +2,7 @@ import 'package:artist_gallore/Screens/category_page.dart';
 import 'package:artist_gallore/models/constants.dart';
 import 'package:artist_gallore/models/gallore_menu_item.dart';
 import 'package:artist_gallore/widgets/buttons/button_arrow.dart';
-import 'package:artist_gallore/widgets/menu/cards/menu_list_horizontal_card.dart';
+import 'package:artist_gallore/widgets/cards/menu_list_horizontal_card.dart';
 import 'package:artist_gallore/styles/text_heading.dart';
 import 'package:flutter/material.dart';
 

@@ -1,5 +1,5 @@
 import 'package:artist_gallore/models/user_profile.dart';
-import 'package:artist_gallore/widgets/menu/cards/user_profile_card.dart';
+import 'package:artist_gallore/widgets/cards/user_profile_card.dart';
 import 'package:flutter/material.dart';
 
 class UserProfileListVertical {

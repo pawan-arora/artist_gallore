@@ -1,11 +1,13 @@
+import 'package:artist_gallore/Screens/filter_page.dart';
 import 'package:artist_gallore/Services/users_DB_service.dart';
+import 'package:artist_gallore/models/filter_info.dart';
 import 'package:artist_gallore/models/user_profile.dart';
 import 'package:artist_gallore/styles/basic_text_style.dart';
 import 'package:artist_gallore/styles/multi_style_text.dart';
 import 'package:artist_gallore/widgets/buttons/button_circular_border.dart';
 import 'package:artist_gallore/widgets/circular_progress_bar.dart';
 import 'package:artist_gallore/widgets/location/location_leading_button.dart';
-import 'package:artist_gallore/widgets/menu/cards/user_profile_card_list.dart';
+import 'package:artist_gallore/widgets/cards/user_profile_card_list.dart';
 import 'package:flutter/material.dart';
 
 class UserListPage extends StatefulWidget {
@@ -124,7 +126,26 @@ class _UserListPageState extends State<UserListPage> {
                                     text: " results found!",
                                     fontWeight: FontWeight.normal)
                               ]),
-                          const ButtonCircularBorder(name: "Filter")
+                          ButtonCircularBorder(
+                            name: "Filter",
+                            height: 30,
+                            width: 80,
+                            onButtonClick: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => FilterPage(
+                                    title: "Filters",
+                                    filterInfo: FilterInfo(
+                                        sortBy: SortBy.mostRelevant,
+                                        skills: [
+                                          getCategoryConstant(widget.category)
+                                        ]),
+                                  ),
+                                ),
+                              );
+                            },
+                          )
                         ]),
                   ),
                   const SizedBox(
@@ -158,6 +179,21 @@ class _UserListPageState extends State<UserListPage> {
         child: CustomCircularProgressBar(),
       ),
     );
+  }
+
+  UserCategory getCategoryConstant(String category) {
+    switch (category.toLowerCase()) {
+      case "sculpture":
+        return UserCategory.sculpture;
+      case "literature":
+        return UserCategory.literature;
+      case "musician":
+        return UserCategory.musician;
+      case "painter":
+        return UserCategory.painter;
+      default:
+        return UserCategory.performer;
+    }
   }
 
   Widget _afterDataLoaded() {

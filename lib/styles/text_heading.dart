@@ -14,7 +14,7 @@ class TextHeading extends StatelessWidget {
       title,
       style: GoogleFonts.montserrat(
         fontSize: fontSize,
-        fontWeight: FontWeight.w900,
+        fontWeight: FontWeight.bold,
       ),
     );
   }

@@ -24,17 +24,17 @@ class MenuListHorizontalCard extends StatelessWidget {
             context,
             MaterialPageRoute(
               builder: (_) => UserListPage(
-                duration: 3,
+                duration: 0,
                 category: menuItem.getName,
               ),
             ),
           );
         },
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          //crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-              padding: const EdgeInsets.only(top: 8),
+              padding: const EdgeInsets.only(top: 8, left: 8, right: 10),
               child: Image.asset(
                 menuItem.getImagePath,
                 height: 70,
@@ -45,7 +45,7 @@ class MenuListHorizontalCard extends StatelessWidget {
               padding: const EdgeInsets.all(8),
               child: BasicTextStyle(
                 name: menuItem.getName,
-                optfontSize: 20,
+                optfontSize: 12,
                 optFontWeight: FontWeight.w500,
               ),
             ),

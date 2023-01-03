@@ -1,9 +1,7 @@
-import 'package:artist_gallore/models/constants.dart';
-
 class UserProfile {
   final String name;
   final String location;
-  final Category category;
+  final UserCategory category;
   final int rating;
   final String ratingPhoto;
   final String photo;
@@ -23,7 +21,8 @@ class UserProfile {
   });
 }
 
-enum Category {
+enum UserCategory {
+  none,
   painter,
   sculpture,
   literature,
@@ -43,6 +42,7 @@ class CountryCodes {
 }
 
 enum CountryName {
+  none,
   india,
   pakistan,
   japan,

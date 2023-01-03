@@ -2,31 +2,43 @@ import 'package:artist_gallore/main.dart';
 import 'package:artist_gallore/styles/basic_text_style.dart';
 import 'package:flutter/material.dart';
 
-class ButtonCircularBorder extends StatefulWidget {
+class ButtonCircularBorder extends StatelessWidget {
   final String name;
-  const ButtonCircularBorder({Key? key, required this.name}) : super(key: key);
+  final double? width;
+  final double? height;
+  final double borderCircularRadius;
+  final double fontSize;
+  final VoidCallback onButtonClick;
 
-  @override
-  State<ButtonCircularBorder> createState() => _ButtonCircularBorder();
-}
+  const ButtonCircularBorder(
+      {Key? key,
+      required this.name,
+      this.height,
+      this.width,
+      this.fontSize = 18,
+      this.borderCircularRadius = 2,
+      required this.onButtonClick})
+      : super(key: key);
 
-class _ButtonCircularBorder extends State<ButtonCircularBorder> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 80,
-      height: 30,
-      decoration: BoxDecoration(
-        color: AppTheme.color,
-        borderRadius: BorderRadius.circular(2),
-        border: Border.all(color: AppTheme.color),
-      ),
-      child: Align(
-        alignment: Alignment.center,
-        child: BasicTextStyle(
-          name: widget.name,
-          textColor: Colors.white,
-          optfontSize: 18,
+    return InkWell(
+      onTap: onButtonClick,
+      child: Container(
+        width: width,
+        height: height,
+        decoration: BoxDecoration(
+          color: AppTheme.color,
+          borderRadius: BorderRadius.circular(borderCircularRadius),
+          border: Border.all(color: AppTheme.color),
+        ),
+        child: Align(
+          alignment: Alignment.center,
+          child: BasicTextStyle(
+            name: name,
+            textColor: Colors.white,
+            optfontSize: fontSize,
+          ),
         ),
       ),
     );
