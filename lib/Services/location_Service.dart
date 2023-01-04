@@ -1,10 +1,13 @@
-import 'package:geocode/geocode.dart';
+import 'package:country_codes/country_codes.dart';
+import 'package:geocoding/geocoding.dart';
+
 import 'package:geolocator/geolocator.dart';
 
 class LocationService {
-  void Function(String) onLocationChange;
+  final void Function(String) onLocationChange;
   LocationService({required this.onLocationChange});
   final GeolocatorPlatform _geolocatorPlatform = GeolocatorPlatform.instance;
+  final CountryDetails _details = CountryCodes.detailsForLocale();
 
   Future<bool> _handlePermission() async {
     bool serviceEnabled;
@@ -34,21 +37,20 @@ class LocationService {
     final hasPermission = await _handlePermission();
 
     if (!hasPermission) {
-      return;
+      onLocationChange(_details.name ?? "");
+    } else {
+      final position = await _geolocatorPlatform.getCurrentPosition();
+      _getAddress(position.latitude, position.longitude).then((value) {
+        onLocationChange(value);
+      });
     }
-
-    final position = await _geolocatorPlatform.getCurrentPosition();
-    _getAddress(position.latitude, position.longitude).then((value) {
-      onLocationChange(value);
-    });
   }
 
   Future<String> _getAddress(double? lat, double? lang) async {
     if (lat == null || lang == null) return "";
-    GeoCode geoCode = GeoCode();
 
-    Address address =
-        await geoCode.reverseGeocoding(latitude: lat, longitude: lang);
-    return "${address.city}";
+    List<Placemark> placemarks = await placemarkFromCoordinates(lat, lang);
+
+    return "${placemarks[0].locality}, ${placemarks[0].country}";
   }
 }

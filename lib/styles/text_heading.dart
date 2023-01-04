@@ -12,6 +12,7 @@ class TextHeading extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       title,
+      overflow: TextOverflow.visible,
       style: GoogleFonts.montserrat(
         fontSize: fontSize,
         fontWeight: FontWeight.bold,

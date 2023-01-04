@@ -30,7 +30,7 @@ enum UserCategory {
   performer,
 }
 
-class CountryCodes {
+class CountryCodesLocal {
   static const int india = 91;
   static const int pakistan = 92;
   static const int japan = 81;

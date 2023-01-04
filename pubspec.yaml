@@ -39,10 +39,11 @@ dependencies:
   material_floating_search_bar: ^0.3.7
   google_fonts: ^3.0.1
   geolocator: ^9.0.2
-  geocode: ^1.0.1
+  geocoding: ^2.0.5
   page_transition: "^2.0.9"
   shared_preferences: ^2.0.15
   dropdown_button2: ^1.9.2
+  country_codes: ^2.2.0
   event_bus: ^2.0.0
   
 dev_dependencies:

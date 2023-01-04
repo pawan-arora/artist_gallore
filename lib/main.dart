@@ -2,19 +2,21 @@ import 'package:artist_gallore/Screens/favourite_page.dart';
 import 'package:artist_gallore/models/constants.dart';
 import 'package:artist_gallore/models/gallore_menu_item.dart';
 import 'package:artist_gallore/models/user_profile.dart';
-import 'package:artist_gallore/widgets/buttons/favourite_button.dart';
 import 'package:artist_gallore/widgets/custom_navigation_bar.dart';
 import 'package:artist_gallore/widgets/floating_search_bar.dart';
 import 'package:artist_gallore/widgets/location/location_app_bar.dart';
 import 'package:artist_gallore/widgets/menu/menu_list_horizontal_scroll.dart';
 import 'package:artist_gallore/styles/text_heading.dart';
 import 'package:artist_gallore/widgets/menu/users_profile_list_vertical.dart';
+import 'package:country_codes/country_codes.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 
-void main() {
+void main() async {
   //SharedPreferences.setMockInitialValues({});
+  WidgetsFlutterBinding.ensureInitialized();
+  await CountryCodes.init();
   runApp(const MyApp());
 }
 
